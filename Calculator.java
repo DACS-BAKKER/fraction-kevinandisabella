@@ -259,8 +259,10 @@ public class Calculator implements ActionListener {
                 /* FOR HIGHER ORDER OF OPERATIONS (MULIPLYT/DIVIDE) */
             } else if (previousOperation >= 0) {
                 previousNumber = calculate(previousNumber, n, op);
+                total = previousNumber;
             } else {
-                previousNumber = n;
+                previousNumber = calculate(previousNumber, n, currentOperation);
+                total = previousNumber;
             }
             previousOperation = op;
         } else if (op >= 2 && textBox.getText().length() > 0 && !emptyScreen) {
